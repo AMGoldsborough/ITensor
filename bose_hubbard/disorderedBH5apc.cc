@@ -1,5 +1,6 @@
 // Disordered Bose-Hubbard model DMRG using ITensor
 // 5 bosons per site (maximum) and anti-periodic boundaries
+// Filling n/L = 1
 // Andrew Goldsborough 18/05/2014
 //
 #include "core.h"
