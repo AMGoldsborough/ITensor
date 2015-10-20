@@ -1,8 +1,33 @@
-Homepage: http://itensor.org/
+AMGoldsborough fork of the ITensor libraries (Homepage: http://itensor.org/). 
 
-A C++ library for creating efficient and flexible tensor product wavefunction calculations.
+This code was used to perform the simulation for the paper "Using entanglement to discern phases in the disordered one-dimensional Bose-Hubbard model" by Andrew M. Goldsborough and Rudolf A. Roemer (http://dx.doi.org/10.1209/0295-5075/111/26004).
 
-The foundation of the library is the Intelligent Tensor or ITensor. 
-Contracting ITensors is no harder than multiplying scalars: matching indices 
-automatically find each other and contract. This makes it easy to transcribe 
-tensor network diagrams into correct, efficient code.
+The base code is ITensor version 0.2.3 but with additional code written by AMG to support the disordered Bose-Hubbard model amongst other things. The additions to the library are:
+
+/itensor/model/bosehubbard.h - Bose-Hubbard basis with max. 2 bosons per site
+/itensor/model/bosehubbard5.h - Bose-Hubbard basis with max. 5 bosons per site
+/itensor/hams/BoseHubbardChain.h - Bose-Hubbard Hamiltonian with max. 2 bosons per site
+/itensor/hams/BoseHubbardChain5.h - Bose-Hubbard Hamiltonian with max. 5 bosons per site
+/itensor/hams/BoseHubbardChain5pbc.h - Bose-Hubbard Hamiltonian with max. 5 bosons per site with periodic boundaries
+/itensor/hams/DisorderedBH.h - BH Hamiltonian with vector variables for use with disorder
+/itensor/hams/DisorderedBH5.h - BH5 Hamiltonian with vector variables for use with disorder
+/itensor/hams/DisorderedBH5pbc.h - BH5 Hamiltonian with vector variables for use with disorder with PBC
+/itensor/hams/DisorderedHeisHalf.h - Spin-half Heisenberg Hamiltonian with vector variables for use with disorder
+/itensor/hams/DisorderedHeisHalfpbc.h - Spin-half Heisenberg Hamiltonian with vector variables and PBC
+/itensor/hams/DisorderedHub.h - Hubbard Hamiltonian with vector variables for use with disorder
+/bose_hubbard/disorderedBH5.cc - code for running diordered BH5 DMRG with filling n/L=1 and outputing observables
+/bose_hubbard/disorderedBH5_half.cc - disordered BH5 DMRG with filling n/L=0.5
+/bose_hubbard/disorderedBH5_two.cc - disordered BH5 DMRG with filling n/L=2
+/bose_hubbard/disorderedBH5apbc_half.cc - disordered BH5 DMRG with filling n/L=0.5 and anti-periodic boundaries
+/bose_hubbard/disorderedBH5apbc_two.cc - disordered BH5 DMRG with filling n/L=2 and anti-periodic boundaries
+/bose_hubbard/disorderedBH5apc.cc - disordered BH5 DMRG with filling n/L=1 and anti-periodic boundaries
+/bose_hubbard/disorderedBH5pbc.cc - disordered BH5 DMRG with filling n/L=1 and PBC
+/bose_hubbard/disorderedBH5pbc_half.cc - disordered BH5 DMRG with filling n/L=0.5 and PBC
+/bose_hubbard/disorderedBH5pbc_two.cc - disordered BH5 DMRG with filling n/L=2 and PBC
+/bose_hubbard/disorderedHub.cc - disordered Hubbard DMRG
+/disordered_spinhalf/disordered_spinhalf.cc - code for running disordered spin-half Heisenberg DMRG
+/disordered_spinhalf/disordered_spinhalfQ.cc - disordered spin-half Heisenberg DMRG keeping U(1) symmertries
+/disordered_spinhalf/sdrg.cc - recreating the tSDRG code used in http://dx.doi.org/10.1103/PhysRevB.89.214203
+/disordered_spinhalf/spinhalfssd_test.cc - testing the sine-squared deformation (http://dx.doi.org/10.1103/PhysRevB.83.060414)
+
+You are welcome to download and use the code under the ITensor licence. If you write a paper using this Bose-Hubbard code please cite "Andrew M. Goldsborough, Rudolf A. Römer, EPL 111, 26004-6 (2015)".
