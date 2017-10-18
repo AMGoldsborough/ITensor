@@ -61,8 +61,7 @@ main(int argc, char* argv[])
     //open file to read from 
     ifstream Jfile;
     std::stringstream fnamestreamJ;
-    fnamestreamJ << "/home/andrewgoldsborough/GIT/ITensor/disordered_spinhalf/J/" << N << "_" << Jstr << "_" << Jdis << "_" << Pdist << "_" << seed << "_J.txt";
-//    fnamestreamJ << "/home/andrewgoldsborough/Dropbox/StrongDisRGMATLAB/MERAtest2/J/" << N << "_" << Jstr << "_" << Jdis << "_" << Pdist << "_" << seed << "_J.txt";
+    fnamestreamJ << "./J/" << N << "_" << Jstr << "_" << Jdis << "_" << Pdist << "_" << seed << "_J.txt";
     Jfile.open(fnamestreamJ.str().c_str());
 
     if ( Jfile.is_open() )
@@ -70,7 +69,6 @@ main(int argc, char* argv[])
         for(int i=1; i<=N; i++)
         {
             Jfile >> J(i);
-            //cout << format("%.15e")%J(i) << '\n';
         }
         Jfile.close();
     }
@@ -153,7 +151,7 @@ main(int argc, char* argv[])
     //open file to write to
     ofstream energyfile;
     std::stringstream fnamestreamenergy;
-    fnamestreamenergy << "/home/andrewgoldsborough/GIT/ITensor/disordered_spinhalf/energy/" << N << "_" << Jstr << "_" << Jdis << "_" << Jzstr << "_" << chimax << "_" << Pdist << "_" << seed << "_" << sweepmax << "_energy_DMRG_dMERA.txt";
+    fnamestreamenergy << "./energy/" << N << "_" << Jstr << "_" << Jdis << "_" << Jzstr << "_" << chimax << "_" << Pdist << "_" << seed << "_" << sweepmax << "_energy_DMRG_dMERA.txt";
     
     energyfile.open(fnamestreamenergy.str().c_str());
 
@@ -170,19 +168,19 @@ main(int argc, char* argv[])
     //open file to write Sz corr
     ofstream szcorrfile;
     std::stringstream fnamestreamsz;
-    fnamestreamsz << "/home/andrewgoldsborough/GIT/ITensor/disordered_spinhalf/szcorr/data/" << N << "_" << Jstr << "_" << Jdis << "_" << Jzstr << "_" << chimax << "_" << Pdist << "_" << seed << "_" << sweepmax << "_szcorr_DMRG_dMERA.txt";
+    fnamestreamsz << "./szcorr/" << N << "_" << Jstr << "_" << Jdis << "_" << Jzstr << "_" << chimax << "_" << Pdist << "_" << seed << "_" << sweepmax << "_szcorr_DMRG_dMERA.txt";
     szcorrfile.open(fnamestreamsz.str().c_str());
     
     //open file to write SpSm corr
     ofstream spsmcorrfile;
     std::stringstream fnamestreamspsm;
-    fnamestreamspsm << "/home/andrewgoldsborough/GIT/ITensor/disordered_spinhalf/spsmcorr/data/" << N << "_" << Jstr << "_" << Jdis << "_" << Jzstr << "_" << chimax << "_" << Pdist << "_" << seed << "_" << sweepmax << "_spsmcorr_DMRG_dMERA.txt";
+    fnamestreamspsm << "./spsmcorr/" << N << "_" << Jstr << "_" << Jdis << "_" << Jzstr << "_" << chimax << "_" << Pdist << "_" << seed << "_" << sweepmax << "_spsmcorr_DMRG_dMERA.txt";
     spsmcorrfile.open(fnamestreamspsm.str().c_str());
     
     //open file to write SmSp corr
     ofstream smspcorrfile;
     std::stringstream fnamestreamsmsp;
-    fnamestreamsmsp << "/home/andrewgoldsborough/GIT/ITensor/disordered_spinhalf/smspcorr/data/" << N << "_" << Jstr << "_" << Jdis << "_" << Jzstr << "_" << chimax << "_" << Pdist << "_" << seed << "_" << sweepmax << "_smspcorr_DMRG_dMERA.txt";
+    fnamestreamsmsp << "./smspcorr/" << N << "_" << Jstr << "_" << Jdis << "_" << Jzstr << "_" << chimax << "_" << Pdist << "_" << seed << "_" << sweepmax << "_smspcorr_DMRG_dMERA.txt";
     smspcorrfile.open(fnamestreamsmsp.str().c_str());
     
     for(int j=1; j<=N; j++) 
@@ -311,19 +309,19 @@ main(int argc, char* argv[])
     //open file to write szexp 
     ofstream szexpfile;
     std::stringstream fnamestreamszexp;
-    fnamestreamszexp << "/home/andrewgoldsborough/GIT/ITensor/disordered_spinhalf/szexp/data/" << N << "_" << Jstr << "_" << Jdis << "_" << Jzstr << "_" << chimax << "_" << Pdist << "_" << seed << "_" << sweepmax << "_szexp_DMRG_dMERA.txt";
+    fnamestreamszexp << "./szexp/" << N << "_" << Jstr << "_" << Jdis << "_" << Jzstr << "_" << chimax << "_" << Pdist << "_" << seed << "_" << sweepmax << "_szexp_DMRG_dMERA.txt";
     szexpfile.open(fnamestreamszexp.str().c_str());
     
     //open file to write spexp
     ofstream spexpfile;
     std::stringstream fnamestreamspexp;
-    fnamestreamspexp << "/home/andrewgoldsborough/GIT/ITensor/disordered_spinhalf/spexp/data/" << N << "_" << Jstr << "_" << Jdis << "_" << Jzstr << "_" << chimax << "_" << Pdist << "_" << seed << "_" << sweepmax << "_spexp_DMRG_dMERA.txt";
+    fnamestreamspexp << "./spexp/" << N << "_" << Jstr << "_" << Jdis << "_" << Jzstr << "_" << chimax << "_" << Pdist << "_" << seed << "_" << sweepmax << "_spexp_DMRG_dMERA.txt";
     spexpfile.open(fnamestreamspexp.str().c_str());
     
     //open file to write smexp
     ofstream smexpfile;
     std::stringstream fnamestreamsmexp;
-    fnamestreamsmexp << "/home/andrewgoldsborough/GIT/ITensor/disordered_spinhalf/smexp/data/" << N << "_" << Jstr << "_" << Jdis << "_" << Jzstr << "_" << chimax << "_" << Pdist << "_" << seed << "_" << sweepmax << "_smexp_DMRG_dMERA.txt";
+    fnamestreamsmexp << "./smexp/" << N << "_" << Jstr << "_" << Jdis << "_" << Jzstr << "_" << chimax << "_" << Pdist << "_" << seed << "_" << sweepmax << "_smexp_DMRG_dMERA.txt";
     smexpfile.open(fnamestreamsmexp.str().c_str());
     
     for(int j=1; j<=N; j++) 
@@ -369,7 +367,7 @@ main(int argc, char* argv[])
     //open file to write to
     ofstream beefile;
     std::stringstream fnamestreambee;
-    fnamestreambee << "/home/andrewgoldsborough/GIT/ITensor/disordered_spinhalf/ee/data/" << N << "_" << Jstr << "_" << Jdis << "_" << Jzstr << "_" << chimax << "_" << Pdist << "_" << seed << "_" << sweepmax << "_ee_DMRG_dMERA.txt";
+    fnamestreambee << "./ee/" << N << "_" << Jstr << "_" << Jdis << "_" << Jzstr << "_" << chimax << "_" << Pdist << "_" << seed << "_" << sweepmax << "_ee_DMRG_dMERA.txt";
     beefile.open(fnamestreambee.str().c_str());
 
     ITensor Lt;                     //plain ITensor for L
